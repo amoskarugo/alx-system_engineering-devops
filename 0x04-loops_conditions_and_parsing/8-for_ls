@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#print contents of a directory excluding hidden files
+
+files=()
+
+# Iterate over files in the current directory
+for file in *; do
+  # Use cut to extract the part of the filename you want
+  part=$(echo "$file" | cut -d '-' -f 2-)
+  files+=("$part")
+done
+
+# Print the extracted parts of filenames
+for part in "${files[@]}"; do
+  echo "$part"
+done

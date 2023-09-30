@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#kill a process based on a certain criteria
+
+pkill -f 4-to_infinity_and_beyond

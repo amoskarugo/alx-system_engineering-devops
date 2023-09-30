@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#terminate another process using the command that started it
+#use "kill"\
+
+kill "$(pgrep -f 4-to_infinity_and_beyond)"

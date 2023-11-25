@@ -1,7 +1,7 @@
 #creating file using puppet
 
 file { '/tmp/school':
-    ensure  => 'absent',
+    ensure  => present,
     path    => '/tmp/school',
     owner   => 'www-data',
     group   => 'www-data',

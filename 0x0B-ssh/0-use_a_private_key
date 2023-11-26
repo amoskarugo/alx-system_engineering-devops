@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # A bash script that uses ssh private key  to connet to a server.
 
 

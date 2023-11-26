@@ -2,7 +2,7 @@
 # Generate RSA key pair
 
 KEY_NAME="school"
-PRIVATE_KEY_PATH=/$KEY_NAME
+PRIVATE_KEY_PATH=$KEY_NAME
 PASSPHRASE="betty"
 
 ssh-keygen -t rsa -b 4096 -f $PRIVATE_KEY_PATH -N $PASSPHRASE

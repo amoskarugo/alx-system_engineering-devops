@@ -2,9 +2,10 @@
 # A bash script that uses ssh private key  to connet to a server.
 
 
-REMOTE_USER="ubuntu"
-REMOTE_HOST="100.25.117.167"
-PRIVATE_KEY="~/.ssh/school"
-SSH_COMMAND="ssh $REMOTE_USER@$REMOTE_HOST -i $PRIVATE_KEY"
+# REMOTE_USER="ubuntu"
+# REMOTE_HOST="100.25.117.167"
+# PRIVATE_KEY="~/.ssh/school"
+# SSH_COMMAND="ssh $REMOTE_USER@$REMOTE_HOST -i $PRIVATE_KEY"
 
-$SSH_COMMAND
+# $SSH_COMMAND
+ssh ubuntu@100.25.117.167 -i ~/.ssh/school

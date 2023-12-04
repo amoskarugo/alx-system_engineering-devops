@@ -3,9 +3,27 @@
 #Configure the server to listen to port 80
 #configure / at its root with a GET request using curl,
 #configure nginx to return X-Served-By: 03-web-02 as http response
+# Define the custom header and its value
+CUSTOM_HEADER="X-Served-By"
+HEADER_VALUE=$(hostname)
 
+# Specify the Nginx configuration file path
+NGINX_CONF_PATH="/etc/nginx/nginx.conf"  # Update this with the actual path to your Nginx configuration file
+
+# Check if the Nginx configuration file exists
+if [ ! -f "$NGINX_CONF_PATH" ]; then
+  echo "Error: Nginx configuration file not found at $NGINX_CONF_PATH"
+  exit 1
+fi
+
+# Add the custom header to the Nginx configuration file
 sudo apt-get update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
-sudo echo "X-Served-By: $(hostname)" | sudo tee /var/www/html/index.html
-sudo service nginx restart
+echo "" | "$NGINX_CONF_PATH"
+echo "server {" >> "$NGINX_CONF_PATH"
+echo "    add_header $CUSTOM_HEADER \"$HEADER_VALUE\";" | "$NGINX_CONF_PATH"
+echo "}" | "$NGINX_CONF_PATH"
+
+# Reload Nginx to apply the changes
+sudo service restart nginx

@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
-#A Bash script that installs Nginx Server
-#Configure the server to listen to port 80
-#configure / at its root with a GET request using curl,
-#configure nginx to return X-Served-By: 03-web-02 as http response
-# Define the custom header and its value
+# Automating nginx configuration
+
 sudo apt-get update
 sudo apt-get -y install nginx
+
+# adding the custom header
 sudo sed -i "/http {/a\         add_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf
 
-# Reload Nginx to apply the changes
-sudo service restart nginx
+sudo service nginx restart

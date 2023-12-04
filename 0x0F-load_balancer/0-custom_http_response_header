@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#A Bash script that installs Nginx Server
+#Configure the server to listen to port 80
+#configure / at its root with a GET request using curl,
+#configure nginx to return X-Served-By: 03-web-02 as http response
+
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+sudo echo "X-Served-By: $(hostname)" | sudo tee /var/www/html/index.html
+sudo service nginx restart
